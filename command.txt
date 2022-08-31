@@ -5,6 +5,8 @@ pip3 install pre-commit
 pre-commit install  
 pip3 install flake8  
 pip3 install black   
+pip3 install Faker
+pip3 install pytest
 
 virtualenv -p python3 venv 
 venv/bin/pip3 freeze > requirements.txt
@@ -21,3 +23,4 @@ engine = db_conn.get_engine()
 
 git rm storage.db --cached # remove the file from the index
 git commit --amend --no-edit # commit the change and reset the index to HEAD
+git push --force # push the changes to the remote repository
