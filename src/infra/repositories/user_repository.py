@@ -1,15 +1,16 @@
 from typing import List
 from src.infra.config import DBConnectionHandler
 
+from src.data.interfaces import UserRepositoryInterface
 from src.domain.models import Users
 from src.infra.entities import Users as UsersEntity
 
 
-class UserRepository:
+class UserRepository(UserRepositoryInterface):
     """class to manage User Repository"""
 
-    @staticmethod
-    def insert_user(name: str, password: str) -> Users:
+    @classmethod
+    def insert_user(cls, name: str, password: str) -> Users:
         """
         Insert a new user in the database
         :param - name: user name
