@@ -7,10 +7,10 @@ from src.infra.config.db_base import Base
 class AnimalTypes(enum.Enum):
     """Defining Anymal Types"""
 
-    DOG = "dog"
-    CAT = "cat"
-    FISH = "fish"
-    TURTLE = "turtle"
+    DOG = "DOG"
+    CAT = "CAT"
+    FISH = "FISH"
+    TURTLE = "TURTLE"
 
 
 class Pets(Base):
