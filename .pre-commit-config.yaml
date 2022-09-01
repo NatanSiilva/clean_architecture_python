@@ -5,13 +5,13 @@ repos:
     - id: black
       language_version: python3.8
       stages: [commit]
-      args: [--line-length=140]
+      args: [--line-length=130]
 -   repo: https://gitlab.com/pycqa/flake8
     rev: 3.7.9
     hooks:
     - id: flake8
       stages: [commit]
-      args: [max-line-length=140]
+      args: [max-line-length=130]
 -   repo: local
     hooks:
     - id: pytest
