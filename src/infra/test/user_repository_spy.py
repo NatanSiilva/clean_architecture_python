@@ -21,7 +21,10 @@ class UserRepositorySpy:
     def select_user(self, user_id: int = None, name: str = None) -> List[Users]:
         """Spy to all the attributes"""
 
-        self.select_user_params["user_id"] = user_id
-        self.select_user_params["name"] = name
+        validate_entry = isinstance(user_id, int) or isinstance(name, str)
+
+        if validate_entry:
+            self.select_user_params["user_id"] = user_id
+            self.select_user_params["name"] = name
 
         return [mock_users()]
