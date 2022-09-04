@@ -31,7 +31,7 @@ def test_route_error_no_body():
 
     response = register_user_router.route(HttpRequest())
 
-    assert register_user_use_case.register_param == {}
+    assert not register_user_use_case.register_param
 
     assert response.status_code == 400
     assert "error" in response.body
@@ -46,7 +46,7 @@ def test_route_error_wrong_body():
 
     response = register_user_router.route(HttpRequest(body=attributes))
 
-    assert register_user_use_case.register_param == {}
+    assert not register_user_use_case.register_param
 
     assert response.status_code == 422
     assert "error" in response.body
