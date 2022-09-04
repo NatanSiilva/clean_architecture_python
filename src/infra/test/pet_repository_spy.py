@@ -11,7 +11,14 @@ class PetRepositorySpy:
         self.select_pet_param = {}
 
     def insert_pet(self, name: str, specie: str, age: int, user_id: int) -> Pets:
-        """Spy all the attributes"""
+        """
+        Spy all the attributes
+        :param name: Pet name
+        :param specie: Pet specie
+        :param age: Pet age
+        :param user_id: User id
+        :return: Pet
+        """
 
         self.insert_pet_param["name"] = name
         self.insert_pet_param["specie"] = specie
