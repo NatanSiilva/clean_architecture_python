@@ -15,7 +15,7 @@ def test_handle():
     find_user_controller = FindUserController(find_user_use_case)
     http_request = HttpRequest(query={"user_id": faker.random_number(digits=3), "user_name": faker.word()})
 
-    response = find_user_controller.handle(http_request)
+    response = find_user_controller.route(http_request)
 
     assert find_user_use_case.by_id_and_name_param["user_id"] == http_request.query["user_id"]
     assert find_user_use_case.by_id_and_name_param["name"] == http_request.query["user_name"]
@@ -31,7 +31,7 @@ def test_handle_with_no_query():
     find_user_controller = FindUserController(find_user_use_case)
     http_request = HttpRequest()
 
-    response = find_user_controller.handle(http_request)
+    response = find_user_controller.route(http_request)
 
     assert not find_user_use_case.by_id_and_name_param
     assert not find_user_use_case.by_id_param

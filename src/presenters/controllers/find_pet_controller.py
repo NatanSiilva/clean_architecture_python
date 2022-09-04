@@ -1,10 +1,12 @@
 from typing import Type
+
 from src.domain.use_cases import FindPet
+from src.main.interface.router import RouterInterface
 from src.presenters.helpers import HttpResponse, HttpRequest
 from src.presenters.errors import HttpErrors
 
 
-class FindPetController:
+class FindPetController(RouterInterface):
     """Class to define Route to find_pet use case"""
 
     def __init__(self, find_pet_use_case: Type[FindPet]):
