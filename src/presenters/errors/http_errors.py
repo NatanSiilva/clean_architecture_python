@@ -12,3 +12,9 @@ class HttpErrors:
         """Method to define error 400"""
 
         return {"status_code": 400, "body": {"error": "Bad Request"}}
+
+    @staticmethod
+    def error_409():
+        """Method to define error 409"""
+
+        return {"status_code": 409, "body": {"error": "Conflict"}}
