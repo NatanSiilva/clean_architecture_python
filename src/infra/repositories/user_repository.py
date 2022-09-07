@@ -1,4 +1,5 @@
 from typing import List
+from sqlalchemy.orm.exc import NoResultFound
 from src.infra.config import DBConnectionHandler
 
 from src.data.interfaces import UserRepositoryInterface
@@ -63,8 +64,12 @@ class UserRepository(UserRepositoryInterface):
                     query_data = [data]
 
             return query_data
+        except NoResultFound:
+            return []
         except:
             db_connection.session.rollback()
             raise
         finally:
             db_connection.session.close()
+
+        return None
